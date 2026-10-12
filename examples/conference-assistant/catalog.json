@@ -1,0 +1,8 @@
+{
+  "notice": "Synthetic conference catalog.",
+  "sessions": [
+    { "id": "A101", "title": "Reliable Agents", "room": "North Hall" },
+    { "id": "A102", "title": "Reliable Agents", "room": "South Hall" },
+    { "id": "B204", "title": "Evidence Before Action", "room": "Garden Room" }
+  ]
+}

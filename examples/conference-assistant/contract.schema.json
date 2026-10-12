@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Conference assistant response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["intent", "session_ids", "needs_clarification", "clarification_question", "proposed_actions", "reply", "evidence"],
+  "properties": {
+    "intent": { "enum": ["register", "change", "cancel", "question", "unknown"] },
+    "session_ids": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "needs_clarification": { "type": "boolean" },
+    "clarification_question": { "type": ["string", "null"] },
+    "proposed_actions": { "type": "array", "uniqueItems": true, "items": { "enum": ["hold_seat", "look_up_booking", "send_reply"] } },
+    "reply": { "type": "string", "minLength": 1, "pattern":"\\S" },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "quote"],
+        "properties": { "field": { "enum":["intent","session_ids","needs_clarification","clarification_question","proposed_actions","reply","evidence"] }, "quote": { "type": "string", "minLength":1, "pattern":"\\S" } }
+      }
+    }
+  },
+  "allOf":[
+    {"if":{"properties":{"needs_clarification":{"const":true}}},"then":{"properties":{"clarification_question":{"type":"string","minLength":1,"pattern":"\\S"}}},"else":{"properties":{"clarification_question":{"const":null}}}}
+  ]
+}

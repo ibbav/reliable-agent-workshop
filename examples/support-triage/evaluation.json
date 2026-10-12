@@ -1,0 +1,9 @@
+{
+  "schema_version":1,"id":"support-triage-synthetic-v1","example":"support-triage",
+  "agent":"triage-agent","graders":["triage-grader"],"transport":{"plugin":"offline-replay"},
+  "reporters":["json-report","markdown-report"],
+  "dependencies":{"replay":"examples/support-triage/replay-outputs.json"},
+  "cases":"examples/support-triage/cases.json","repeats":2,
+  "coverage":{"required_splits":["development","held-out"],"required_tags":["normal","ambiguity","injection","protected_action"]},
+  "variants":{"a":{"prompt":"examples/support-triage/baseline.md"},"b":{"prompt":"examples/support-triage/candidate.md"}}
+}

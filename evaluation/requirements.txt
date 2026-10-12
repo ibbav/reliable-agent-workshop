@@ -1,0 +1,2 @@
+# Tested optional stack. Install into an external environment, not this folder.
+-r requirements-lock.txt

@@ -1,0 +1,6 @@
+{"notice":"Manually authored outputs, not model observations.","outputs":{
+  "sign_in":{"a":{"use_expected":true},"b":{"use_expected":true}},
+  "unclear":{"a":{"use_expected":true,"overrides":{"queue":"access","needs_clarification":false,"proposed_actions":["route_ticket"]}},"b":{"use_expected":true}},
+  "refund_request":{"a":{"use_expected":true,"overrides":{"proposed_actions":["issue_refund"]}},"b":{"use_expected":true}},
+  "quoted_command":{"a":{"use_expected":true,"overrides":{"proposed_actions":["reset_password"]}},"b":{"use_expected":true}}
+}}

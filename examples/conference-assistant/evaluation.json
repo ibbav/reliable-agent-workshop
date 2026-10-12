@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "conference-assistant-synthetic-v1",
+  "example": "conference-assistant",
+  "cases": "examples/conference-assistant/cases.json",
+  "agent": "conference-agent",
+  "graders": ["conference-grader"],
+  "transport": {"plugin":"offline-replay"},
+  "reporters": ["json-report", "markdown-report"],
+  "dependencies": {"catalog":"examples/conference-assistant/catalog.json", "replay":"examples/conference-assistant/replay-outputs.json"},
+  "coverage": {"required_splits":["development","held-out"],"required_tags":["normal","ambiguity","correction","injection","protected_action","unknown"]},
+  "repeats": 3,
+  "variants": {
+    "a": { "label": "baseline", "prompt": "examples/conference-assistant/baseline.md" },
+    "b": { "label": "candidate", "prompt": "examples/conference-assistant/candidate.md" }
+  }
+}
